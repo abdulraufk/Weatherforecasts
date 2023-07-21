@@ -1,0 +1,99 @@
+<!-- <i class="fas fa-wind"></i> -->
+<i class="pi pi-home"></i>
+<div class="body">
+  <div class="container">
+    <div class="containeru" *ngIf="weatherData">
+      <video [src]="videoUrl" autoplay muted loop class="back-video"></video>
+      <div class="header">
+        <div class="search-box">
+          <input
+            type="text"
+            placeholder="Enter your location"
+            [(ngModel)]="searchValue"
+            class="input-box"
+          />
+          <button
+            class="fa-solid fa-magnifying-glass"
+            (click)="search()"
+            id="searchBtn"
+          ></button>
+        </div>
+      </div>
+      <div class="weather-body">
+        <div class="weather-box">
+          <p class="temperature">
+            {{ weatherData.name }}, {{ weatherData.sys.country }}
+          </p>
+        </div>
+        <img
+          src="../../assets/images/drizzle.png"
+          alt="Weather Image"
+          class="weather-img"
+        />
+        <!-- <img   src="https://openweathermap.org/img/wn/{{
+            weatherData.weather[0].icon
+          }}.png"
+          alt="{{ weatherData.weather[0].description }}"> -->
+
+        <div class="weather-box">
+          <p class="temperature">
+            {{ weatherData.main.temp | number : "1.0-0" }}<sup>°C</sup>
+          </p>
+          <p class="description">{{ weatherData.weather[0].description }}</p>
+        </div>
+        <div class="weather-details">
+          <div class="humidity">
+            <i class="fa-sharp fa-solid fa-droplet"></i>
+            <div class="text">
+              <span id="humidity">{{ weatherData.main.humidity }}%</span>
+              <p>Humidity</p>
+            </div>
+          </div>
+          <div class="wind">
+            <i class="fa-solid fa-temperature-high"></i>
+            <div class="text">
+              <span id="wind-speed"
+                >{{ weatherData.main.temp_max | number : "1.0-0" }}°C</span
+              >
+              <p>Max-Temp</p>
+            </div>
+          </div>
+          <div class="wind">
+            <i class="pi pi-drop"></i>
+            <div class="text">
+              <span id="wind-speed">{{ weatherData.wind.speed }} m/s</span>
+              <p>Wind Speed</p>
+            </div>
+          </div>
+        </div>
+        <div class="future-forecast" ngfor>
+          <div class="weather-forecast" id="weather-forecast">
+            <div
+              class="weather-forecast-item"
+              *ngFor="let nestdays of newArraydaydata"
+            >
+              <div class="day">{{ nestdays.dt_txt | date : "EEE" }}</div>
+              <!-- <img
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather icon"
+                class="w-icon"
+              /> -->
+              <img
+                src="https://openweathermap.org/img/wn/{{
+                  weatherData.weather[0].icon
+                }}.png"
+                alt="{{ weatherData.weather[0].description }}"
+              />
+              <div class="temp">
+                Temp - {{ nestdays.main.temp - 273.5 | number : "1.0-0" }} °C
+              </div>
+              <div class="temp">
+                humidity - {{ nestdays.main.humidity | number : "1.0-0" }}°C
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
