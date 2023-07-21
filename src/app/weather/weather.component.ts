@@ -126,6 +126,7 @@ export class WeatherComponent implements OnInit, AfterViewInit {
             forecastTime === '15:00'
           );
         });
+        console.log('------------', this.newArraydaydata);
       });
   }
 }
