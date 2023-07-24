@@ -43,13 +43,14 @@ export class WeatherComponent implements OnInit, AfterViewInit {
     this.weatherService.getWeatherData('lahore').subscribe(
       (data) => {
         this.weatherData = data;
+        console.log('-->', data);
         this.loading = false;
         if (this.weatherData?.weather[0]?.main == 'Clouds') {
-          const videoPath1 = 'assets/images/clouds.mp4';
+          const videoPath1 = 'assets/images/smoke.mp4';
           this.videoUrl =
             this.sanitizer.bypassSecurityTrustResourceUrl(videoPath1);
         } else if (this.weatherData?.weather[0]?.main == 'Rain') {
-          const videoPath1 = 'assets/images/rain.mp4';
+          const videoPath1 = 'assets/images/rrain.mp4';
           this.videoUrl =
             this.sanitizer.bypassSecurityTrustResourceUrl(videoPath1);
         } else if (this.weatherData?.weather[0]?.main == 'Clear') {
@@ -61,7 +62,7 @@ export class WeatherComponent implements OnInit, AfterViewInit {
           this.videoUrl =
             this.sanitizer.bypassSecurityTrustResourceUrl(videoPath1);
         } else {
-          const videoPath1 = 'assets/images/shins.mp4';
+          const videoPath1 = 'assets/images/shine.mp4';
           this.videoUrl =
             this.sanitizer.bypassSecurityTrustResourceUrl(videoPath1);
         }
@@ -76,9 +77,10 @@ export class WeatherComponent implements OnInit, AfterViewInit {
     if (this.searchValue) {
       this.weatherService.getWeatherData(this.searchValue).subscribe(
         (data) => {
+          console.log('---->', data);
           this.weatherData = data;
           if (this.weatherData?.weather[0]?.main == 'Clouds') {
-            const videoPath1 = 'assets/images/clouds.mp4';
+            const videoPath1 = 'assets/images/ppp.mp4';
             this.videoUrl =
               this.sanitizer.bypassSecurityTrustResourceUrl(videoPath1);
           } else if (this.weatherData?.weather[0]?.main == 'Rain') {

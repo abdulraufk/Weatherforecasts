@@ -1,3 +1,4 @@
+<i class="fa-sharp fa-solid fa-droplet"></i>
 <div class="body">
   <div class="container">
     <div class="containeru" *ngIf="weatherData">
@@ -5,6 +6,7 @@
       <div class="header">
         <div class="search-box">
           <input
+            (keyup.enter)="search()"
             type="text"
             placeholder="Enter your location"
             [(ngModel)]="searchValue"
@@ -45,9 +47,8 @@
         </div>
         <div class="weather-details">
           <div class="humidity">
-            <!-- <i class="fa-sharp fa-solid fa-droplet"></i> -->
             <img
-              src="../../assets/images/io.png"
+              src="../../assets/images/io-removebg-preview (1).png"
               alt=""
               style="width: 25px; height: 30px; color: aliceblue"
             />
@@ -59,7 +60,7 @@
           <div class="wind">
             <!-- <i class="fa-solid fa-temperature-high"></i> -->
             <img
-              src="../../assets/images/windspeed.png"
+              src="../../assets/images/opo-removebg-preview.png"
               alt=""
               style="width: 25px; height: 30px"
             />
@@ -73,7 +74,7 @@
           <div class="wind">
             <!-- <i class="pi pi-drop"></i> -->
             <img
-              src="../../assets/images/p.png"
+              src="../../assets/images/windspeed (1).png"
               alt=""
               style="width: 25px; height: 30px"
             />
