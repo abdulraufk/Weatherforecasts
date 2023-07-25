@@ -114,7 +114,6 @@ export class WeatherComponent implements OnInit, AfterViewInit {
       .getWeatherByCountry(this.cityName)
       .subscribe((data: any) => {
         this.weatherforcast = data.list;
-        console.log('------->', this.weatherforcast);
         const currentDate = new Date();
         const nextThreeDaysDate = new Date(currentDate);
         nextThreeDaysDate.setDate(currentDate.getDate() + 4);
